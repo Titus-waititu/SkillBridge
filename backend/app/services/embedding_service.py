@@ -16,9 +16,8 @@ class EmbeddingService:
         logger.info(f"Loading embedding model: {self.model_name}")
         self.model = SentenceTransformer(self.model_name)
         logger.info(
-    f"Model loaded successfully. Dimension: {
-        settings.VECTOR_DIMENSIONS}"  
-)
+            f"Model loaded successfully. Dimension: {settings.VECTOR_DIMENSIONS}"
+        )
 
     def generate_embedding(self, text: str) -> List[float]:
         """
