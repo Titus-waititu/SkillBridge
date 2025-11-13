@@ -1,0 +1,50 @@
+feat: initial project scaffold — SkillBridge AI career coach
+
+Initial commit of SkillBridge: an AI-powered career path navigator.
+This commit adds the FastAPI backend, Next.js TypeScript frontend,
+data ingestion scripts, Docker Compose for local dev, and deployment
+configuration for Render. Implements semantic search with `pgvector`,
+embedding pipelines, and endpoints for skills, roadmaps, and jobs.
+
+- Add FastAPI backend (`backend/`):
+  - API routes: `app/api/routes/skills.py`, `app/api/routes/roadmap.py`, `app/api/routes/jobs.py`
+  - Pydantic schemas: `app/api/schemas.py`
+  - Database layer: `app/db/models.py`, `app/db/database.py`, `app/db/init_db.py`
+  - Services: `app/services/embedding_service.py`, `app/services/gemini_service.py`
+  - App entrypoint: `main.py`, lifecycle hooks, and CORS setup
+  - Background/workers config: Celery + Redis environment support
+
+- Add data ingestion and utilities:
+  - `init_database.py`, `load_kaggle_data.py`, `search_jobs.py`, `verify_jobs.py`
+  - CSV assets under `backend/archive/` (companies, jobs, mappings, postings)
+
+- Add requirements and Docker:
+  - `backend/requirements.txt` with ML, DB, and web dependencies (FastAPI, Uvicorn, SQLAlchemy, pgvector, sentence-transformers, torch, etc.)
+  - `backend/Dockerfile` and top-level `docker-compose.yml` for local dev
+
+- Add Next.js frontend (`frontend/`):
+  - TypeScript + React app files under `frontend/src/` (`page.tsx`, `layout.tsx`, UI components)
+  - Frontend build config and package manifests (`package.json`, `pnpm-lock.yaml`, `next.config.ts`)
+
+- Add project-level docs and configs:
+  - `README.md`, `SETUP.md`, `PROJECT_OVERVIEW.md`, `ARCHITECTURE.md`, `COMMANDS.md`, `SUMMARY.md` (added to `.gitignore`)
+  - `render.yaml` for Render deployment (optional)
+  - `.gitignore` updates for docs and build artifacts
+
+- Key features implemented:
+  - Vector embeddings and semantic search via `pgvector`
+  - Embedding generation pipeline (`embedding_service.py`)
+  - RAG-style recommendations using Google Gemini integration (`gemini_service.py`)
+  - API endpoints for:
+    - Skill extraction and analysis (`/api/v1/skills`)
+    - Roadmap generation and personalized recommendations (`/api/v1/roadmap`)
+    - Job search and matching (`/api/v1/jobs`)
+  - DB models for jobs, skills, companies, and roadmap entities
+
+- Deployment & infra notes:
+  - Supports hosting on Render (Python service + Redis add-on) — heavy ML deps (PyTorch) may require a paid tier
+  - Environment variables defined in `backend/.env` or via platform secrets (DATABASE_URL, GEMINI_API_KEY, REDIS_URL, etc.)
+
+- Misc:
+  - Linting configured (frontend/backend) and initial fixes applied
+  - Added `render.yaml` and CI-friendly start commands

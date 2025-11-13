@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Node
+node_modules/
+.next/
+out/
+dist/
+.pnpm-store/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite3
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+coverage/
+
+# Build
+build/
+*.egg-info/
+
+# Docker
+.dockerignore
+
+# Misc
+.vercel
+.turbo
+
+# Documentation
+SUMMARY.md
+SETUP.md
+COMMANDS.md
+PROJECT_OVERVIEW.md
+ARCHITECTURE.md
+backend/archive/postings.csv
