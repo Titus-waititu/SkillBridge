@@ -22,7 +22,6 @@ import {
 } from "@/components/ui/card";
 
 import { Loader2, Sparkles, TrendingUp, Target, Clock } from "lucide-react";
-import { request } from "https";
 
 export default function Home() {
   const [currentSkills, setCurrentSkills] = useState<string[]>([]);
@@ -49,11 +48,16 @@ export default function Home() {
       setRoadmap(data);
       setErrorMessage(null);
     },
-    onError: (error: any) => {
+    onError: (error: unknown) => {
       // Extract user-friendly error message from API response
+      const typed =
+        (error as { response?: { data?: { detail?: string } } }) || null;
       const message =
-        error.response?.data?.detail ||
-        error.message ||
+        (typed &&
+          typeof typed === "object" &&
+          "response" in typed &&
+          typed.response?.data?.detail) ||
+        (error instanceof Error ? error.message : undefined) ||
         "An unexpected error occurred";
       setErrorMessage(message);
     },
