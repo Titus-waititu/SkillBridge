@@ -56,8 +56,7 @@ async def create_job_posting(
         logger.error(f"Error creating job posting: {str(e)}")
         raise HTTPException(
             status_code=500,
-            detail=f"Failed to create job posting: {
-                str(e)}")
+            detail=f"Failed to create job posting: {str(e)}")
 
 
 @router.get("/", response_model=List[JobPostingResponse])
@@ -154,8 +153,7 @@ async def match_jobs(request: JobMatchRequest, db: Session = Depends(get_db)):
         logger.error(f"Error matching jobs: {str(e)}")
         raise HTTPException(
             status_code=500,
-            detail=f"Failed to match jobs: {
-                str(e)}")
+            detail=f"Failed to match jobs: {str(e)}")
 
 
 @router.get("/stats/summary")

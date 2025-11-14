@@ -260,9 +260,7 @@ def seed_job_postings():
             )
             db.add(job)
             logger.info(
-                f"Added job: {
-                    job_data['title']} at {
-                    job_data['company']}")
+                f"Added job: {job_data['title']} at {job_data['company']}")
 
         db.commit()
         logger.info(f"✓ Seeded {len(jobs_data)} job postings")

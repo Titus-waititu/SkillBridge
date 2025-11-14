@@ -29,8 +29,8 @@ async def generate_roadmap(
     """
     try:
         logger.info(
-            f"Generating roadmap for target role: {
-                request.target_role}")
+            f"Generating roadmap for target role: {request.target_role}"
+        )
 
         # Step 1: Generate embedding service
         embedding_service = EmbeddingService()
@@ -56,8 +56,7 @@ async def generate_roadmap(
         # If no exact title matches, use vector similarity alone
         if not similar_jobs:
             logger.info(
-                f"No exact title matches for '{
-                    request.target_role}', using vector similarity")
+                f"No exact title matches for '{request.target_role}', using vector similarity")
             similar_jobs = (
                 db.query(
                     JobPosting,
@@ -170,8 +169,7 @@ async def generate_roadmap(
                 if step.estimated_duration.split()[0].isdigit()
             ]
         )
-        estimated_timeline = f"{total_duration} weeks" if total_duration < 52 else f"{
-            total_duration // 4} months"
+        estimated_timeline = f"{total_duration} weeks" if total_duration < 52 else f"{total_duration // 4} months"
 
         # Calculate confidence score based on skill overlap
         confidence_score = (
@@ -225,9 +223,7 @@ async def generate_roadmap(
         elif "timeout" in error_message.lower():
             detail = "Request timed out. Please try again with fewer skills or a simpler role."
         else:
-            detail = f"Unable to generate roadmap. Please try again or contact support. Error: {
-                error_message[
-                    :100]}"
+            detail = f"Unable to generate roadmap. Please try again or contact support. Error: {error_message[:100]}"
 
         raise HTTPException(status_code=500, detail=detail)
 

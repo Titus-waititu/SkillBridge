@@ -151,10 +151,7 @@ def load_kaggle_jobs(batch_size=1000, max_jobs=5000):
                             remote_type = 'Remote'
 
                     # Create embedding from title + description + skills
-                    embedding_text = f"{title}. {
-                        description[
-                            :500]}. Skills: {
-                        ', '.join(skills)}"
+                    embedding_text = f"{title}. {description[:500]}. Skills: {', '.join(skills)}"
                     embedding = embedding_service.generate_embedding(
                         embedding_text)
 

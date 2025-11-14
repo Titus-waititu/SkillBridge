@@ -92,8 +92,7 @@ class GeminiService:
             JSON string containing the learning roadmap
         """
         salary_context = (
-            f"Target Salary: ${
-                target_salary:,.0f} per year" if target_salary else "")
+            f"Target Salary: ${target_salary:,.0f} per year" if target_salary else "")
         experience_context = (
             f"Current Experience: {experience_years} years" if experience_years else "")
 
