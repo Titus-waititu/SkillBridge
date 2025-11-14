@@ -16,5 +16,5 @@ COPY . .
 # Expose port
 EXPOSE 3000
 
-# Run the application
+# Run the application in docker
 CMD ["pnpm", "dev"]
