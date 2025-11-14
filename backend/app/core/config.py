@@ -19,7 +19,11 @@ class Settings(BaseSettings):
     GEMINI_API_KEY: str
 
     # CORS
-    CORS_ORIGINS: List[str] = ["http://localhost:3000"]
+    CORS_ORIGINS: List[str] = [
+        "http://localhost:3000", 
+        "http://localhost:5173",
+        "https://skill-bridge-jade.vercel.app"
+    ]
 
     # Vector Search
     EMBEDDING_MODEL: str = "all-MiniLM-L6-v2"
