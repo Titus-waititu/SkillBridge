@@ -32,9 +32,14 @@ app = FastAPI(
 )
 
 # Configure CORS
+cors_origins = settings.CORS_ORIGINS.copy()
+# Add Vercel domain explicitly if not already present
+if "https://skill-bridge-jade.vercel.app" not in cors_origins:
+    cors_origins.append("https://skill-bridge-jade.vercel.app")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ORIGINS,
+    allow_origins=cors_origins,
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["Content-Type", "Authorization", "Accept", "Origin", "X-Requested-With"],
@@ -63,6 +68,16 @@ async def health_check():
         "status": "healthy",
         "database": "connected",
         "vector_search": "enabled",
+    }
+
+
+@app.get("/debug/cors")
+async def debug_cors():
+    """Debug endpoint to check CORS configuration"""
+    return {
+        "cors_origins": settings.CORS_ORIGINS,
+        "app_name": settings.APP_NAME,
+        "debug": settings.DEBUG
     }
 
 
