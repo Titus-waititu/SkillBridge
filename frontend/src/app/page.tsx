@@ -113,10 +113,6 @@ export default function Home() {
               Get personalized learning roadmaps powered by RAG and Vector
               Search
             </h2>
-            <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-              To get started, edit the page.tsx file. Looking for a starting
-              point or more instructions? Head over to the resources below.
-            </p>
           </div>
         </div>
 
