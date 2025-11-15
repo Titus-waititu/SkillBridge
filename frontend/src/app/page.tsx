@@ -104,15 +104,62 @@ export default function Home() {
             <Sparkles className="text-blue-600" size={48} />
             Skill Coach
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 mb-6">
             AI-Powered Career Path Navigator
           </p>
 
-          <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-            <h2 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-              Get personalized learning roadmaps powered by RAG and Vector
-              Search
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-semibold leading-tight tracking-tight text-gray-900 mb-4">
+              Get Personalized Learning Roadmaps Powered by AI
             </h2>
+            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              Transform your career with data-driven insights. Our AI analyzes
+              over 124,000+ real job postings to create personalized learning
+              paths tailored to your current skills and target role.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-8">
+              <div className="bg-white p-6 rounded-lg shadow-sm border">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Target className="text-blue-600" size={24} />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  Smart Skill Analysis
+                </h3>
+                <p className="text-sm text-gray-600">
+                  AI identifies gaps between your current skills and market
+                  demands
+                </p>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg shadow-sm border">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <TrendingUp className="text-green-600" size={24} />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  Market Insights
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Real-time data from top companies and high-demand roles
+                </p>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg shadow-sm border">
+                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Sparkles className="text-purple-600" size={24} />
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">
+                  Custom Roadmaps
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Step-by-step learning paths with resources and timelines
+                </p>
+              </div>
+            </div>
+
+            <p className="text-center text-gray-500 text-sm">
+              🚀 Start by adding your current skills and target role below
+            </p>
           </div>
         </div>
 
